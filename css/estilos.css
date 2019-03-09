@@ -3,6 +3,35 @@ selectores
 declaraciones
 propiedades
 valores*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../iconos/fonts/icomoon.eot?g685jv');
+    src:  url('../iconos/fonts/icomoon.eot?g685jv#iefix') format('embedded-opentype'),
+      url('../iconos/fonts/icomoon.ttf?g685jv') format('truetype'),
+      url('../iconos/fonts/icomoon.woff?g685jv') format('woff'),
+      url('../iconos/fonts/icomoon.svg?g685jv#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-menu:before {
+    content: "\e9be";
+  }
 
 body {
    font-family: 'source Sans Pro', sans-serif;
@@ -45,26 +74,34 @@ h2 {
     margin:0 0 0 20px;
 }
 
-.hero{       
+.hero{  
+    display:block;     
     margin:0px;
     align-items: center; 
-    height: 400px;       
+    height: auto;       
  }
 
-.container.hero {           
-    display:grid;
-    grid-template: 400px / repeat(3,1fr); 
-    grid-template-areas: "titulo titulo hero_Image";               
+.container {           
+    width:auto;
+    height: 500px; 
+    position:relative; 
+    padding: 10px;              
 } 
 
 .titulo{
-    grid-area: titulo; 
-    font-size: 38px;   
+   position:absolute;
+   z-index: 3;
+   left:0;
+   top:120px;
+   right:0;
+   bottom:0;
 }
 
 .hero_Image{
-    grid-area: hero_Image;    
-    margin-left: -250px;
+   position:absolute;
+   z-index: 2;
+   margin-left: 700px;
+   margin-top: 50px;
 }
 
 .hero_Image {
@@ -73,10 +110,13 @@ h2 {
     filter: saturate(120%);  
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);      
 }
-.Backgroundimage{
-    margin-top: -400px;
-    z-index: -1;
+.Backgroundimage{    
+    z-index: 1;
     filter: blur(2px);
+    position:absolute;
+    height: 380px;
+    width:100%;
+    
 }
 /*
 .hero:hover img {
@@ -86,6 +126,10 @@ h2 {
 
 .hero h1 {
     margin: 0px 70px;
+}
+
+.habilities{
+    margin-top: 400px;
 }
 
 .estudios {
@@ -123,7 +167,7 @@ h3 {
 
 .portfolio {     
     background:     #fafafa;
-    padding: 20px;
+    padding: 5px;
 }
 
 .portafolio_Title {
@@ -365,7 +409,7 @@ figure {
 }
 
 .container {    
-    max-width: 1000px;
+    max-width: 1024px;
     flex:1; /*Para que tome todo el ancho de la pantalla*/
     margin: 0 auto;
     display: inherit;
@@ -373,16 +417,54 @@ figure {
     align-items: inherit;
     height: inherit;
     flex-wrap: inherit;
+    padding: 0 1em;
+}
+
+.burguer_button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(29, 26, 26, 0.5);
+    display:none;
+    line-height: 40px;
+    text-align:center;
+    position: fixed;
+    z-index: 4;
+    left: 5px;
+    top: 5px;
+    color: white;
 }
 
 
 /*Aqui empiezan los Media Querys*/
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1023px){
+    .container{
+        padding: 0 1em;
+    }
 
+    h1 {
+        position: absolute;
+        font-size: 2.2em;
+        line-height: 40px;               
+        z-index: 3;   
+    }
+
+    .hero_Image{
+        position: absolute;        
+        left: -110px;
+        top: 0;
+        right: 0;
+        bottom:0;
+        grid-area: hero_Image;  
+    }
 }
 
 @media screen and (max-width: 767px){ /* Justo Antes de un Ipad*/
+    .burguer_button{
+        display:block;
+    }
+    
     .header{
        display:block; 
        height: auto;
@@ -400,37 +482,73 @@ figure {
         justify-content: center;    
     }
 
+    .menu {
+        position:fixed;
+        background: rgba(5, 111, 255, 0.6) ;
+        z-index: 3;
+        top: 0;
+        left: 0px;
+        bottom:0;
+        /*width: 100vw;*/
+        /*height: 100vh;*/
+        display:flex;
+        align-items: center;
+        transition: 0.5s;
+    }
+
+    .menu.is_active {
+        left: -110px;
+    }
+
     .logo{
         text-align: center;
     }
-        
-    .container.hero {           
-        display:grid;
-        grid-template: 400px 400px / repeat(2,1fr); 
-        grid-template-areas: "titulo titulo"                            
-                             "hero_Image .";               
-    } 
     
-    .titulo{
-        grid-area: titulo; 
-        font-size: 38px; 
-        margin-top: -100px;  
+    .hero{
+        height:auto;       
+    } 
+    .container.hero {
+        /*height: auto;           
+        position:relative;                 
+        padding: 10px;*/
+        display: grid;
+        grid-template: 600px / repeat(3,1fr);
+        grid-template-areas: "titulo titulo hero_Image";                          
+        grid-gap: 10px; 
     }
+  
     
     .hero_Image{
-        grid-area: hero_Image;    
-        z-index: 1;
-        margin-top: -500px;
-        margin-left: 300px;        
+        position: absolute;        
+        left:-400px;
+        top: 70px;
+        right: 0;
+        bottom:0;
+        grid-area: hero_Image;  
     }
 
     .Backgroundimage{
-        max-width: 768px;
-        margin-top: -600px;
-        margin-left: -500px;
-        z-index: -1;
-        filter: blur(2px);
-    }   
+        position: absolute;
+        z-index: 1;
+        left:0;
+        top:0;
+        right:20px;
+        bottom:0;
+        width:100%;
+    }
+
+    .titulo{
+        grid-area: titulo;
+        text-align:center;
+        top: 30px;
+    }
+
+    h1 {
+        position: absolute;
+        font-size: 1.6em;
+        line-height: 40px;               
+        z-index: 3;   
+    }
 
     .estudios figure {
         margin: 20px 10px 20px 100px;
@@ -494,51 +612,109 @@ figure {
         height: 300px; 
     }
 
-   
- 
+    .contact{
+        height: auto;
+        padding: 1.5em 0;
+    }
+    
+    .form_Email button{
+        margin: 1em;  
+        margin-bottom: 20px;              
+    }
+
+    .footer{
+        display:block;  
+        text-align:center; 
+        font-size: 0.88em; 
+        border: 1px solid transparent;
+    }
 
 }
 
-@media screen and (max-width: 480px){
-    .container.hero {           
-        display:grid;
-        grid-template: 400px 400px / repeat(2,1fr); 
-        grid-template-areas: "titulo titulo"                            
-                                 "hero_Image .";               
-    } 
+@media screen and (max-width: 480px){     
         
-    .titulo{
-        grid-area: titulo; 
-        font-size: 38px; 
-        margin-top: -100px;  
+    .hero{
+        height:auto;       
+    } 
+
+    h1 {
+        position: absolute;
+        font-size: 1.6em;
+        line-height: 40px;               
+        z-index: 3;   
     }
-       
+
+    .container.hero {
+        height: auto;           
+        position:relative;                 
+        padding: 10px; 
+    }
+  
+    
     .hero_Image{
-        grid-area: hero_Image;    
+        position: absolute;
+        z-index: 2;
+        left:350px;
+        top:0;
+        right:0;
+        bottom:0;
+        margin-left: -180px;
+        margin-top: 120px;
+    }
+
+    .Backgroundimage{
+        position: absolute;
         z-index: 1;
-        margin-top: -500px;
-        margin-left: 300px;        
+        left:0;
+        top:0;
+        right:20px;
+        bottom:0;
+        width:100%;
+    }
+    .titulo{
+        position:absolute;
+        z-index: 3;
+        left:0;
+        top:30px;
+        right:0;
+        bottom:0;
+     }
+
+    h1 {
+        position: absolute;
+        font-size: 1.5em;
+        line-height: 30px;               
+        z-index: 3;         
+    }
+
+    .habilities{
+        margin-top: 350px;
     }
     
-    .Backgroundimage{
-        max-width: 768px;
-        margin-top: -600px;
-        margin-left: -500px;
-        z-index: -1;
-        filter: blur(2px);
-    }   
-        
     .estudios figure {
         margin: 20px 10px 20px 50px;
     }
         
     .idiomas figure {
-         margin: 20px 10px 20px 50px;
+        margin: 20px 10px 20px 50px;
+    }
+
+    .container{
+        padding: 5px;
+    }
+
+    .project{
+        margin: 0;
+    }
+
+    .portafolio_Title {
+        margin-left: 0px;
+        margin-bottom:0px;
     }
 
     .project_Details {
         width:auto;
-        font-size: 12px;
+        font-size: 19px;
     }
 
     .project_Imagecontainer {
@@ -553,18 +729,87 @@ figure {
         text-align: center;        
     }
 
+    .event_List_Title{
+        margin-left:0;
+        margin-bottom: 0;
+    }
+
     .event_Detail{
         margin:-2em 1.5em .5em;
         padding: 1em;
+        height: 390px;
     }
-    
+
     .event_Detail.ativa {
         width: 80%;
         height: 590px;
     }
+
+    .contact{
+        height: auto;
+        padding: 1.5em 0;
+        text-align: center;
+        display: block;
+    }
+
+    .form_Email button{
+        margin: 1em;
+        margin: auto;
+        margin-top: 20px;  
+        margin-bottom: 20px;       
+    }
+
+    .footer{
+       font-size: 0.9em;
+    }
 }
 
 @media screen and (max-width: 320px){
+    
+    .hero{
+        height:auto;       
+    } 
+    .container.hero {
+        height: auto;           
+        position:relative;                 
+        padding: 10px; 
+    }
+  
+    
+    .hero_Image{
+        position: absolute;
+        z-index: 2;
+        left:260px;
+        top:0;
+        right:0;
+        bottom:0;       
+    }
+
+    .Backgroundimage{
+        position: absolute;
+        z-index: 1;
+        left:0;
+        top:0;
+        right:20px;
+        bottom:0;
+        width:100%;
+    }
+    .titulo{
+        position:absolute;
+        z-index: 3;
+        left:-20px;
+        top:20px;
+        right:-50px;
+        bottom:0;
+     }
+
+    h1 {
+        position: absolute;
+        font-size: 1.7em;
+        line-height: 30px;               
+        z-index: 3;         
+    }
+    
     .event{
         width:auto;
         flex-shrink: initial;      
@@ -572,7 +817,7 @@ figure {
 
     .event_Detail.ativa {
         width: 80%;
-        height: 590px;
+        height: 620px;
     }
 
     .event_Detail{
@@ -594,6 +839,10 @@ figure {
     .event_Detail{
         margin:-2em 1em .5em;
         padding: 1em;
+    }
+
+    .footer{      
+        font-size: 1em; 
     }
 }
 
