@@ -435,6 +435,85 @@ figure {
     color: white;
 }
 
+.html_Video {
+    max-width:100%;
+}
+
+.post-list {    
+    display:grid;
+    grid-template-columns: repeat(3, minmax(100px, 293px));
+    justify-content: center;
+    grid-gap: 28px;
+}
+
+.post {
+    cursor: pointer;
+    position:relative;           
+    display: block;
+}
+
+.post-image {
+    margin:0;
+}
+
+.post-image img {
+    width: 100%;
+    height:auto;
+    vertical-align: top;
+}
+
+.post-overlay {
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    left:0;
+    right: 0;
+    bottom:0;
+    top:0;
+    display: none;
+    align-items:center;
+    justify-content: center;
+    color:white;
+    text-align: center;
+}
+
+.post:hover .post-overlay {
+    display: flex;
+}
+.pos-like, .post-comments {
+    width:80px;
+    margin: 5px;
+    font-weight: bold;
+    text-align:center;
+    display: inline-block;
+}
+
+.familia{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.calisthenics{
+    margin-top: 100px;   
+}
+
+
+
+
+.video {
+    display:grid;   
+    grid-template-columns: repeat(2, minmax(100px, 384px));
+    justify-content: center;
+    grid-gap: 28px;
+}
+
+.mazda {    
+    display:grid;
+    grid-template-columns: repeat(2, minmax(100px, 293px));
+    justify-content: center;
+    grid-gap: 28px;
+}
+  
 
 /*Aqui empiezan los Media Querys*/
 
@@ -458,6 +537,7 @@ figure {
         bottom:0;
         grid-area: hero_Image;  
     }
+   
 }
 
 @media screen and (max-width: 767px){ /* Justo Antes de un Ipad*/
@@ -629,6 +709,17 @@ figure {
         border: 1px solid transparent;
     }
 
+    .post-list{
+        grid-gap: 3px;
+     }
+
+     .mazda {    
+        display:grid;
+        grid-template-columns: repeat(2, minmax(100px, 293px));
+        justify-content: center;
+        grid-gap: 28px;
+    }
+
 }
 
 @media screen and (max-width: 480px){     
@@ -762,6 +853,28 @@ figure {
     .footer{
        font-size: 0.9em;
     }
+
+    .post-list {    
+        display:grid;
+        grid-template-columns: repeat(2, minmax(100px, 293px));
+        justify-content: center;
+        grid-gap: 28px;
+    }
+
+    .video {
+        display:grid;   
+        grid-template-columns: repeat(1, minmax(100px, 384px));
+        justify-content: center;
+        grid-gap: 28px;
+    }
+
+    .mazda {    
+        display:grid;
+        grid-template-columns: repeat(1, minmax(100px, 293px));
+        justify-content: center;
+        grid-gap: 28px;
+    }
+  
 }
 
 @media screen and (max-width: 320px){
