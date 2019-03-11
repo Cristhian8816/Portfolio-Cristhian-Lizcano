@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portafolio</title>
+    <link rel="icon" type= "image/png" href="../images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css"> 
+</head>
+<body>
+    <i class="icon-menu burguer_button" id="burguer-menu"></i>
+    <header class="header"> 
+        <div class="container">
+            <figure class="logo">
+                <img src="../images/cpu2.png" width="80" height="80" alt="Logo de Cristhian Lizcano" />
+                <img src="../images/logo.png" width="280" height="80" alt="Logo de Cristhian Lizcano" />
+            </figure>
+            <nav class="menu is_active">
+                <ol>
+                    <li>
+                        <a class="link" href="../index.html">CoverPage</a>
+                    </li>
+                    <li>
+                        <a class="link" href="portffolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="link" href="/Experience/experience.html">Experience</a>
+                    </li> 
+                    <li>
+                        <a class="link" href="#contacto">Job Together</a>
+                    </li>                   
+                    <li>
+                        <a class="link" href="/Hobbies/hobbies.html">Hobbies</a>
+                    </li>
+                </ol>
+            </nav>
+        </div>                
+    </header>
+
+    <section id="portafolio" class="portfolio">
+        <div class="container">
+            <h2 class="portafolio_Title">Portfolio (Featured projects)</h2>
+            <article class="project">
+                <div class="project_Details">
+                    <h3 class="project_Title">RAHM Medium Hybrid Environmental Robot</h3>
+                    <h6 class="project_Course">Rio de Janeiro/ Brasil</h6>
+                    <p class="project_Date"><small><strong>Date:</strong> October 2013 -October 2015</small></p>
+                    <p class="project_Description">Participation in the development of an amphibious robotic prototype, RAHM´s mission is the environmental
+                         exploration around the pipeline (Cuari - Manaus) in the Brazilian Amazon. This prototype has an autonomous navigation system,
+                          based on multiple sensors and specialized equipment for making decisions by itself. </p>
+                    <p class="project_Url"><small><strong>For more information:</strong> <a
+                                href="http://www.scielo.br/scielo.php?script=sci_arttext&pid=S2179-84512018000200235" target="_blank">RAHM</a></small></p>
+                </div>
+                <figure class="project_Imagecontainer">
+                    <img class="project_Image" src="../images/RAHM2.jpg" width="450" height="300" alt="Proyecto RAHM">
+                </figure>
+            </article>
+            <article class="project">
+                <div class="project_Details">
+                    <h3 class="project_Title">StarsCream Teleoperated Robot</h3>
+                    <h6 class="project_Course">Bucaramanga/Colombia</h6>
+                    <p class="project_Date"><small><strong>Date:</strong> July 2010</small></p>
+                    <p class="project_Url"><small><strong>You can watch at:</strong> <a
+                                href="https://www.youtube.com/watch?v=d2lYWLsRLxw&t=367s"
+                                target="_blank">StarsCream</a></small></p>
+                    <p class="project_Description">Teleoperated Robotics prototype through a Joystick, its principal mission is to explore inhospitable and
+                         dangerous terrain for a human, thanks to its communication technology Bluethooth, this robot can be controlled a mile away and through 
+                         his camera incorporated its possible to see everything arround, also has a manipulator for the grip of objects.
+                    </p> 
+                    <p class="piede_Proyecto"><strong>Winner Project at Campus Bot of Campus Party 2010 Colombia</strong></p>                            
+                </div>
+                <figure class="project_Imagecontainer">
+                    <img class="project_Image" src="../images/Starscream.png" width="450" height="300" alt="Proyecto StarsCream">
+                </figure>                                               
+            </article>
+            
+        </div>            
+    </section>
+
+    <section id="contacto" class="contact">
+            <div class="container">
+                <form action="/suscripcion/" class="form_Email">
+                    <h3>¿Do we create something together?</h3>
+                    <input type="text" placeholder="leave me your email" id="email">
+                    <button>Send</button>
+                </form>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/cristhian-julian-g%C3%B3mez-lizcano-335201167/" class="social_Link Linkedin" target="_blank"></a>
+                    <a href="https://github.com/Cristhian8816 " target="_blank" class="social_Link GitHub"></a>
+                    <a href="Usuario: cristhian.julian.gomez.lizcano" class="social_Link Skype"></a>
+                    <a href="" class="social_Link Whatsapp"></a>
+                </div>
+            </div> 
+                       
+    </section>
+
+    <footer class="footer">
+            <div class="container">
+                <div>
+                    <p>Copyright © 2019 CV Mechatronic Engineer Cristhian Julian Gómez Lizcano</p>
+                </div>
+                <div>
+                    <p>Design by <img src="../images/animado-Cristhian.gif" width="200" height="100" alt="Logo de Cristhian Lizcano" /></p>
+                </div> 
+            </div>                                        
+    </footer> 
+
+    <script>
+                
+            const ipad = window.matchMedia('screen and (max-width: 767px)');
+            const menu = document.querySelector('.menu');                
+            const burguerButton = document.querySelector('#burguer-menu');
+           
+            ipad.addListener(validation);
+
+            function validation(event) {
+                if (event.matches)
+                {
+                    burguerButton.addEventListener('click', hideShow);
+                } else {
+                    burguerButton.removeEventListener('click', hideShow);
+                }
+                console.log(event.matches);
+            }
+
+            validation(ipad);
+
+
+            function hideShow()
+            {
+              if(menu.classList.contains('is_active')){
+                menu.classList.remove('is_active');
+              } else{
+                menu.classList.add('is_active');
+              } 
+            }
+    </script>
+    
+    </body>
+</html>
