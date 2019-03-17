@@ -441,9 +441,10 @@ figure {
 
 .post-list {    
     display:grid;
-    grid-template-columns: repeat(3, minmax(100px, 293px));
+    grid-template-columns: repeat(4, minmax(50px, 100px));
     justify-content: center;
     grid-gap: 28px;
+    margin-bottom: 50px;
 }
 
 .post {
@@ -856,9 +857,10 @@ figure {
 
     .post-list {    
         display:grid;
-        grid-template-columns: repeat(2, minmax(100px, 293px));
+        grid-template-columns: repeat(4, minmax(50px, 100px));
         justify-content: center;
         grid-gap: 28px;
+        margin-bottom: 50px;
     }
 
     .video {
