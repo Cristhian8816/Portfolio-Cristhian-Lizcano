@@ -292,7 +292,7 @@ figure {
 .event {
     margin: 1%;
     width: 48%; 
-    height: 680px;
+    height: 780px;
     flex-shrink: 0;
     border-radius:10px;
     overflow: hidden;
@@ -329,6 +329,16 @@ figure {
 .event.ativa {
     height: 850px;
 }
+
+.event.mvm {
+    height: 800px;
+}
+
+.event_Detail.mvm {
+    width: 80%;
+    height: 450px;
+}
+
 .event_Detail.ativa {
     width: 80%;
     height: 520px;
